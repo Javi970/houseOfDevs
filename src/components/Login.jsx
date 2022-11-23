@@ -28,9 +28,10 @@ function Login() {
     <div>
       <form onSubmit={handleLogin}>
         <label>Email</label>
-        <input email={email} onChange={changeEmail} type="email" />
+        <input email={email} onChange={changeEmail} type="email" /><br/>
         <label>Password</label>
         <input password={password} onChange={changePassword} type="password" />
+        <br/>
         <button>Send</button>
       </form>
     </div>

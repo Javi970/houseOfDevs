@@ -5,7 +5,9 @@ const models = require('./models/Users');
 const routers = require('./routes/index');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const morgan = require("morgan")
 
+app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());

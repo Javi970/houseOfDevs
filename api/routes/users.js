@@ -15,9 +15,11 @@ router.post('/login', (req, res) => {
     user.validatePassword(password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
       const payload = {
+        id:user.id,
         email: user.email,
         name: user.name,
         lastname: user.lastname,
+        admin:user.admin,
       };
       const token = generateToken(payload);
 

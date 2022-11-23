@@ -33,10 +33,10 @@ Users.init(
     phone: {
       type: Sequelize.STRING,
     },
-    /* admin: {
+    admin: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
-    }, */
+    },
     salt: {
       type: Sequelize.STRING,
     },
