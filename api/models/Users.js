@@ -36,6 +36,7 @@ Users.init(
     admin: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
+      allowNull:false
     },
     salt: {
       type: Sequelize.STRING,

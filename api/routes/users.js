@@ -15,11 +15,11 @@ router.post('/login', (req, res) => {
     user.validatePassword(password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
       const payload = {
-        id:user.id,
+        id: user.id,
         email: user.email,
         name: user.name,
         lastname: user.lastname,
-        admin:user.admin,
+        admin: user.admin,
       };
       const token = generateToken(payload);
 
@@ -30,12 +30,21 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/me',validateAuth, (req, res) => {
+router.get('/me', validateAuth, (req, res) => {
   res.send(req.user);
 });
 router.post('/logout', (req, res) => {
   res.clearCookie('token');
   res.sendStatus(204);
+});
+
+router.get('/getUser/:id', (req, res) => {
+  const id = req.params.id;
+  Users.findOne({ where: {id} })
+    .then((user) => {
+      res.send(user);
+    })
+    .catch((err) => res.status(400).send(err));
 });
 
 module.exports = router;

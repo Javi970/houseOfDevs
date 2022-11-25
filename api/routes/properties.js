@@ -26,5 +26,11 @@ router.delete('/:id', validateAdmin, (req, res) => {
   .then(() => res.status(204).send("Propiedad eliminada"))
   .catch((err) => res.status(400).send(err));
 });
+router.get("/" ,(req,res)=>{
+    Properties.findAll()
+    .then((propertie)=>res.status(200).send(propertie))
+    .catch((err) => res.status(400).send(err));
+    
+})
 
 module.exports = router;
