@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Users = require('../models/Users');
 const { generateToken, validateToken } = require('../config/token');
 const { validateAuth } = require('../middlewares/auth');
+const { validateAdmin } = require('../middlewares/auth');
 
 router.post('/register', (req, res) => {
   Users.create(req.body).then((user) => {
@@ -46,5 +47,24 @@ router.get('/getUser/:id', (req, res) => {
     })
     .catch((err) => res.status(400).send(err));
 });
+
+router.get('/superAdmin', validateAdmin ,(req, res) => {
+  Users.findAll()
+    .then((users) => {
+      console.log(users)
+      res.status(200).send(users);
+    })
+    .catch((err) => res.status(400).send(err));
+});
+
+router.delete('/deleteUser/:id', validateAdmin ,(req, res) => {
+  const id = req.params.id
+  Users.destroy({where:{id}})
+    .then(() => {
+      res.status(204).send("User deleted");
+    })
+    .catch((err) => res.status(400).send(err));
+});
+
 
 module.exports = router;

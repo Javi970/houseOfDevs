@@ -15,7 +15,7 @@ function User({ userId }) {
                 withCredentials: true,
               })
               .then((res) => res.data)
-          }, [userId]);
+          }, []);
    /*  useEffect(() => {
         axios
           .get(`http://localhost:3001/api/users/getUser/${userId}`)

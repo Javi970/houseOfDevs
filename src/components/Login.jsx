@@ -4,21 +4,23 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import '../assets/styles/components/Login.css';
 import {Link} from "react-router-dom"
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../state/user';
 
 function Login() {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   function handleLogin(e) {
     e.preventDefault();
-
     axios
       .post(
         'http://localhost:3001/api/users/login',
         { email: email, password: password },
         { withCredentials: true },
       )
-      .then((res) => console.log(res.data))
+      .then((res) => dispatch(userLogin(res.data)))
       .then(() => {
         navigate('/homePage');
         alert('Congratulations successful Log in!');

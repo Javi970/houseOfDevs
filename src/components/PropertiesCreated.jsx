@@ -22,7 +22,7 @@ const PropertiesCreated = () => {
     e.preventDefault();
     axios
       .post(
-        'http://localhost:3001/api/property/create',
+        'http://localhost:3001/api/properties/create',
         {
           title: title,
           category: category,

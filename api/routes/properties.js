@@ -2,6 +2,14 @@ const router = require('express').Router();
 const Properties = require('../models/Properties');
 const { validateAdmin } = require('../middlewares/auth');
 
+router.get("/:id" ,(req,res)=>{
+  const id = req.params.id
+  Properties.findOne({where:{id}})
+  .then((property)=>res.status(200).send(property))
+  .catch((err) => res.status(400).send(err));
+  
+})
+
 //http://localhost:3001/api/properties/create
 
 router.post('/create', validateAdmin, (req, res) => {
@@ -26,11 +34,12 @@ router.delete('/:id', validateAdmin, (req, res) => {
   .then(() => res.status(204).send("Propiedad eliminada"))
   .catch((err) => res.status(400).send(err));
 });
-router.get("/" ,(req,res)=>{
-    Properties.findAll()
-    .then((propertie)=>res.status(200).send(propertie))
-    .catch((err) => res.status(400).send(err));
-    
-})
+
+router.get('/', (req, res) => {
+  Properties.findAll().then((property) => {
+    res.status(200).send(property);
+  });
+});
+
 
 module.exports = router;
