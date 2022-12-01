@@ -15,11 +15,7 @@ const userReducer = createReducer(initialState, {
   email: action.payload.email,
   admin: action.payload.admin,
   }),
-  /* [userLogout]:(state, action)=>(state={
-    id: null,
-    email: null,
-    admin: null
-  }) */
+  [userLogOut]:(state, action)=>(state={})
 });
 
 export default userReducer;
