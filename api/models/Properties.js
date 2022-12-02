@@ -41,7 +41,7 @@ Properties.init(
         allowNull: false
       },
       availability: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
         allowNull: false
       },
       rooms: {

@@ -1,26 +1,27 @@
-import React from 'react';
-import '../assets/styles/components/Navbar.css';
-import logo from '../assets/image/logo.png';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { userLogOut } from '../state/user';
+import React from 'react'
+import '../assets/styles/components/Navbar.css'
+import logo from '../assets/image/logo.png'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogOut } from '../state/user'
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user)
 
   const handlerLogOut = () => {
     axios
       .post('/api/users/logout')
       .then((res) => res.data)
       .then(() => dispatch(userLogOut()))
-      .catch(() => alert('No se pudo cerrar sesion.'));
-  };
+      .catch(() => alert('No se pudo cerrar sesion.'))
+  }
+  console.log(user)
   return (
     <nav className=" navbarr">
       <div className="container">
-        <a className="navbar-brand">
+        <a className="navbar-brand" href="/">
           <img src={logo} alt="HouseOfDev" />
         </a>
         <ul className="nav justify-content-end">
@@ -37,9 +38,6 @@ const NavBar = () => {
           <li className="nav-item">
             <a className="nav-link buttons">Our service</a>
           </li>
-          {/* <li className="nav-item">
-            <a className="nav-link buttons">My profile</a>
-          </li> */}
           <li className="nav-item">
             <a className="nav-link buttons">About us</a>
           </li>
@@ -48,33 +46,36 @@ const NavBar = () => {
           </li>
           {user.admin ? (
             <>
-              <p>{user.nombre} Admin</p>
-              <li>
-                <ul>
-                  <li>
-                    <Link to="/admin/users">Usuarios</Link>
-                  </li>
-                  <li>
-                    <Link onClick={handlerLogOut} to="/">
-                      Log Out
-                    </Link>
-                  </li>
-                </ul>
+              <p>{user.name} Admin</p>
+
+              <li className="nav-item">
+                <a className="nav-link buttons">My profile</a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link buttons" to="/allUsers">
+                  Usuarios
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link buttons"
+                  onClick={handlerLogOut}
+                  to="/"
+                >
+                  Log Out
+                </Link>
               </li>
             </>
           ) : user.id ? (
             <>
-              <p>{user.nombre}</p>
-              <li>
-                <ul>
-                  <li>
-                    
-                    <Link onClick={handlerLogOut} to="/">
+              <p>{user.name}</p>
+             
+                  <li className="nav-item">
+                    <Link className="nav-link buttons" onClick={handlerLogOut} to="/">
                       Log Out
                     </Link>
                   </li>
-                </ul>
-              </li>
+              
             </>
           ) : (
             <>
@@ -94,11 +95,10 @@ const NavBar = () => {
               </li>
             </>
           )}
-         
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

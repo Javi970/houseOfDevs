@@ -127,33 +127,6 @@ function Register() {
         <input type="submit" className="form__submit" value="Sign in" />
       </div>
     </form>
-    /* <div className='container-register'>
-     
-      <div className="register">
-      <h1 id="title-register">Create your acount!</h1>
-        <form className="login"onSubmit={handleRegister} autoComplete="off">
-          <label>Name
-          <br/>
-          <input name={name} onChange={changeName} type="text" />
-          </label>
-          
-          <label>Lastname
-          <input lastname={lastname} onChange={changeLastname} type="text" />
-          </label>
-          <label>Email
-          <br/>
-          <input email={email} onChange={changeEmail} type="email" />
-          </label>
-          <label>Password
-          <input password={password} onChange={changePassword} type="password" />
-          </label>
-          <label>Phone
-          <input phone={phone} onChange={changePhone} type="tel" />
-          </label>
-          <button>Send</button>
-        </form>
-      </div>
-    </div> */
   );
 }
 

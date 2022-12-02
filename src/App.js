@@ -4,7 +4,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import NavBar from "./components/Navbar"
 import User from "./components/User";
-
+import ViewAdminUsers from "./components/ViewAdminUsers"
 import PropertiesCreated from "./components/PropertiesCreated";
 import HomePage from "./components/HomePage";
 import Card from "./components/Card"
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/propertiesCreated" element={<PropertiesCreated />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/properties/:id" element={<Card />} />
+        <Route path="/allUsers" element={<ViewAdminUsers />} />
       </Routes>
     </>
   );

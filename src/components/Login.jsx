@@ -22,7 +22,7 @@ function Login() {
       )
       .then((res) => dispatch(userLogin(res.data)))
       .then(() => {
-        navigate('/homePage');
+        navigate('/');
         alert('Congratulations successful Log in!');
       })
       .catch(() => alert('Wrong Log in, please try again'));

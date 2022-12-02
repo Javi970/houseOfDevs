@@ -15,6 +15,7 @@ const PropertiesCreated = () => {
   const [image, setImage] = useState('');
   const [availability, setAvailability] = useState('');
   const [rooms, setRooms] = useState('');
+  const [description, setDescription] = useState('');
 
   const navigate = useNavigate();
 
@@ -32,12 +33,13 @@ const PropertiesCreated = () => {
           addres: addres,
           district: district,
           availability: availability,
+          description : description,
           rooms: rooms,
         },
         { withCredentials: true },
       )
       .then((res) => console.log(res.data))
-      .then(() => navigate('/homePage'))
+      .then(() => navigate('/'))
       .catch((error) => console.log(error));
   };
 
@@ -70,6 +72,10 @@ const PropertiesCreated = () => {
   const handleChangeRooms = (e) => {
     setRooms(e.target.value);
   };
+  const handleChangeDescription =(e)=>{
+    setDescription(e.target.value);
+  };
+
   return (
     <div>
       
@@ -121,9 +127,17 @@ const PropertiesCreated = () => {
           <label>
             Availability
             <input
-              type="text"
+              type="boolean"
               availability={availability}
               onChange={handleChangeAvailability}
+            />
+          </label>
+          <label>
+             Description
+            <input
+              type="text"
+              description={description}
+              onChange={handleChangeDescription}
             />
           </label>
           <label>

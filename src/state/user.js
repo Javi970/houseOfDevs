@@ -4,6 +4,7 @@ const initialState = {
   id: null,
   email: null,
   admin: null,
+  name : null
 };
 
 export const userLogin = createAction('USER_LOGIN');
@@ -14,6 +15,7 @@ const userReducer = createReducer(initialState, {
     id: action.payload.id,
   email: action.payload.email,
   admin: action.payload.admin,
+  name : action.payload.name
   }),
   [userLogOut]:(state, action)=>(state={})
 });

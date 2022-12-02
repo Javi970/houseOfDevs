@@ -20,3 +20,6 @@
   background-color: #f7f3ee;
   color: #000;
 }
+li{
+  list-style: none;
+}

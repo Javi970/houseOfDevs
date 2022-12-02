@@ -4,18 +4,17 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 
-function User({ userId }) {
+function User() {
    const Navigate = useNavigate()
         
-        
+      /*   
         useEffect(() => {
-            if (userId);
             axios
               .get(`http://localhost:3001/api/users/getUser/${userId}`, {
                 withCredentials: true,
               })
               .then((res) => res.data)
-          }, []);
+          }, []); */
    /*  useEffect(() => {
         axios
           .get(`http://localhost:3001/api/users/getUser/${userId}`)

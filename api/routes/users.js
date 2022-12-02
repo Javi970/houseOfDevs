@@ -48,7 +48,7 @@ router.get('/getUser/:id', (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-router.get('/superAdmin', validateAdmin ,(req, res) => {
+router.get('/allUsers', validateAdmin ,(req, res) => {
   Users.findAll()
     .then((users) => {
       console.log(users)
