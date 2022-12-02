@@ -17,7 +17,7 @@ const NavBar = () => {
       .then(() => dispatch(userLogOut()))
       .catch(() => alert('No se pudo cerrar sesion.'))
   }
-  console.log(user)
+ 
   return (
     <nav className=" navbarr">
       <div className="container">
@@ -49,11 +49,13 @@ const NavBar = () => {
               <p>{user.name} Admin</p>
 
               <li className="nav-item">
-                <a className="nav-link buttons">My profile</a>
+                <Link className="nav-link buttons" to="/user">
+                  My profile
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link buttons" to="/allUsers">
-                  Usuarios
+                  Users
                 </Link>
               </li>
               <li className="nav-item">
@@ -69,13 +71,20 @@ const NavBar = () => {
           ) : user.id ? (
             <>
               <p>{user.name}</p>
-             
-                  <li className="nav-item">
-                    <Link className="nav-link buttons" onClick={handlerLogOut} to="/">
-                      Log Out
-                    </Link>
-                  </li>
-              
+              <li className="nav-item">
+                <Link className="nav-link buttons" to="/user">
+                  My profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link buttons"
+                  onClick={handlerLogOut}
+                  to="/"
+                >
+                  Log Out
+                </Link>
+              </li>
             </>
           ) : (
             <>

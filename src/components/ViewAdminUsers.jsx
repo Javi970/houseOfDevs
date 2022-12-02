@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+
 
 function ViewAdminUsers() {
   const [users, setUsers] = useState([])
@@ -42,8 +42,8 @@ function ViewAdminUsers() {
                       <td>{usuario.email}</td>
                       <td>{usuario.phone}</td>
                       <td>
-                        <button onClick={() => handleDelete(usuario.id)}>
-                          Eliminar
+                        <button type="button" class="btn btn-primary" onClick={() => handleDelete(usuario.id)}>
+                          Delete
                         </button>
                       </td>
                     </tr>
@@ -54,6 +54,8 @@ function ViewAdminUsers() {
           </table>
         </div>
       </div>
+      <button type="button" class="btn btn-primary" >Make a property</button>
+      
     </div>
   )
 }

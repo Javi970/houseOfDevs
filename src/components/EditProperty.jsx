@@ -1,29 +1,29 @@
-import React from 'react';
-import axios from 'axios';
-import { useState } from 'react';
+import React from 'react'
+import axios from 'axios'
+import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
+import '../assets/styles/components/PropertiesCreated.css'
 
-import { useNavigate } from 'react-router';
-import "../assets/styles/components/PropertiesCreated.css"
+const EditProperty = () => {
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
+  const [country, setCountry] = useState('')
+  const [addres, setAddres] = useState('')
+  const [price, setPrice] = useState('')
+  const [district, setDistrict] = useState('')
+  const [image, setImage] = useState('')
+  const [availability, setAvailability] = useState('')
+  const [rooms, setRooms] = useState('')
+  const [description, setDescription] = useState('')
 
-const PropertiesCreated = () => {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
-  const [country, setCountry] = useState('');
-  const [addres, setAddres] = useState('');
-  const [price, setPrice] = useState('');
-  const [district, setDistrict] = useState('');
-  const [image, setImage] = useState('');
-  const [availability, setAvailability] = useState('');
-  const [rooms, setRooms] = useState('');
-  const [description, setDescription] = useState('');
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
-
+  const  {id}  = useParams()
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     axios
-      .post(
-        'http://localhost:3001/api/properties/create',
+      .put(
+        `http://localhost:3001/api/properties/change/${id}`,
         {
           title: title,
           category: category,
@@ -33,63 +33,61 @@ const PropertiesCreated = () => {
           addres: addres,
           district: district,
           availability: availability,
-          description : description,
+          description: description,
           rooms: rooms,
         },
         { withCredentials: true },
       )
       .then((res) => console.log(res.data))
       .then(() => navigate('/'))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   const handleChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
+    setTitle(e.target.value)
+  }
 
   const handleChangeCategory = (e) => {
-    setCategory(e.target.value);
-  };
+    setCategory(e.target.value)
+  }
 
   const handleChangeCountry = (e) => {
-    setCountry(e.target.value);
-  };
+    setCountry(e.target.value)
+  }
   const handleChangePrice = (e) => {
-    setPrice(e.target.value);
-  };
+    setPrice(e.target.value)
+  }
   const handleChangeImage = (e) => {
-    setImage(e.target.value);
-  };
+    setImage(e.target.value)
+  }
   const handleChangeAddres = (e) => {
-    setAddres(e.target.value);
-  };
+    setAddres(e.target.value)
+  }
   const handleChangeDistrict = (e) => {
-    setDistrict(e.target.value);
-  };
+    setDistrict(e.target.value)
+  }
   const handleChangeAvailability = (e) => {
-    setAvailability(e.target.value);
-  };
+    setAvailability(e.target.value)
+  }
   const handleChangeRooms = (e) => {
-    setRooms(e.target.value);
-  };
-  const handleChangeDescription =(e)=>{
-    setDescription(e.target.value);
-  };
+    setRooms(e.target.value)
+  }
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value)
+  }
 
   return (
     <div>
-      
       <div className="form">
         <form className="form" onSubmit={handleSubmit}>
-        <h1 className="form__title">Create a Property</h1>
+          <h1 className="form__title">Edit a Property</h1>
           <label>
             Title
             <input type="text" title={title} onChange={handleChangeTitle} />
           </label>
           <label>
             Category
-            <input 
-            
+            <input
               type="text"
               category={category}
               onChange={handleChangeCategory}
@@ -127,13 +125,13 @@ const PropertiesCreated = () => {
           <label>
             Availability
             <input
-              type="boolean"
+              type="text"
               availability={availability}
               onChange={handleChangeAvailability}
             />
           </label>
           <label>
-             Description
+            Description
             <input
               type="text"
               description={description}
@@ -142,13 +140,13 @@ const PropertiesCreated = () => {
           </label>
           <label>
             Rooms
-            <input type="text" rooms={rooms} onChange={handleChangeRooms} />
+            <input type="number" rooms={rooms} onChange={handleChangeRooms} />
           </label>
-          <button>Crear</button>
+          <button>Edit</button>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PropertiesCreated;
+export default EditProperty
