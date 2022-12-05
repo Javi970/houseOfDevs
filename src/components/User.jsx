@@ -2,42 +2,31 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router'
+import { useSelector } from 'react-redux'
+import '../assets/styles/components/User.css'
 
 function User() {
-  const Navigate = useNavigate()
-  const { id } = useParams()
-  const [user, setUser] = useState({})
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3001/api/users/getUser/${id}`, {
-        withCredentials: true,
-      })
-      .then((res) => console.log("ESTO ESEL LOG",res.data))
-      .then((res) => setUser(res.data))
-  }, [])
+  const user = useSelector((state) => state.user)
 
   return (
-    <>
-      <h5>
-        <strong>User profile</strong>
-      </h5>
-      <h6>
-        <strong>Nombre</strong>: {user.name}
-      </h6>
-      <h6>
-        <strong>Apellido</strong>: {}
-      </h6>
-      <h6>
-        <strong>DNI</strong>: {}
-      </h6>
-      <h6>
-        <strong>Email</strong>: {}
-      </h6>
-      <h6>
-        <strong>Address</strong>: {}
-      </h6>
-    </>
+    <div className="container">
+      <div >
+        <div >
+          <h5 >
+            <strong>My profile</strong>
+          </h5>
+          <h6 >
+            <strong>Name</strong>: {user?.name}
+          </h6>
+          <h6>
+            <strong>Apellido</strong>: {user?.lastname}
+          </h6>
+          <h6>
+            <strong>Email</strong>: {user?.email}
+          </h6>
+        </div>
+      </div>
+    </div>
   )
 }
 

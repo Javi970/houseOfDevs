@@ -144,7 +144,7 @@ const PropertiesCreated = () => {
             Rooms
             <input type="text" rooms={rooms} onChange={handleChangeRooms} />
           </label>
-          <button>Crear</button>
+          <button>Done</button>
         </form>
       </div>
     </div>

@@ -22,8 +22,9 @@ function Card() {
       <div>
         <h1>{property.title} </h1>
         <div>
-          <img src={property.image} alt={property.description} />
+          <img src={property.image}  />
         </div>
+        <p>{property.description}</p>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
 
 function ViewAdminUsers() {
   const [users, setUsers] = useState([])
@@ -13,14 +13,16 @@ function ViewAdminUsers() {
   }, [])
 
   const handleDelete = (userId) => {
-    axios.delete(`/api/users/deleteUser/${userId}`).catch((error) => console.error(error))
+    axios
+      .delete(`/api/users/deleteUser/${userId}`)
+      .catch((error) => console.error(error))
   }
 
   return (
     <div className="container">
       <div className="row">
         <div className="col">
-          <table className="table table-striped table-danger table-hover table-bordered table align-middle" >
+          <table className="table table-striped table-danger table-hover table-bordered table align-middle">
             <thead>
               <tr>
                 <th>Id</th>
@@ -42,7 +44,11 @@ function ViewAdminUsers() {
                       <td>{usuario.email}</td>
                       <td>{usuario.phone}</td>
                       <td>
-                        <button type="button" class="btn btn-primary" onClick={() => handleDelete(usuario.id)}>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          onClick={() => handleDelete(usuario.id)}
+                        >
                           Delete
                         </button>
                       </td>
@@ -54,8 +60,11 @@ function ViewAdminUsers() {
           </table>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" >Make a property</button>
-      
+      <button type="button" class="btn btn-primary">
+        <Link to="/propertiesCreated" className="nav-link buttons">
+          Make a property
+        </Link>
+      </button>
     </div>
   )
 }

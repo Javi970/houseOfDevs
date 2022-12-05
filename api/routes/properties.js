@@ -28,7 +28,7 @@ router.put('/change/:id', validateAdmin, (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-router.delete('/:id', validateAdmin, (req, res) => {
+router.delete('/deleteHouse/:id', validateAdmin, (req, res) => {
   const id = req.params.id;
   Properties.destroy({ where: { id } })
   .then(() => res.status(204).send("Propiedad eliminada"))

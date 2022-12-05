@@ -6,28 +6,21 @@ import { useSelector } from 'react-redux'
 import '../assets/styles/components/HomePage.css'
 
 function HomePage() {
- 
-  
   const user = useSelector((state) => state.user)
   const [properties, setProperties] = useState([])
   useEffect(() => {
     axios
-      .get('api/properties/',{ withCredentials: true })
+      .get('api/properties/', { withCredentials: true })
       .then((res) => res.data)
       .then((properties) => setProperties(properties))
       .catch((error) => console.error(error))
   }, [])
 
-/*   const handleView = () => {
-    axios.get(`/api/properties/${id}`,{ withCredentials: true })
-    .then((res)=>setProperties(res.data))
-    .catch((error) => console.error(error))
-  } */
-  /* const handleDelete = (userId) => {
+  const handleDelete = (propertyId) => {
     axios
-      .delete(`/api/users/deleteUser/${userId}`,{ withCredentials: true })
+      .delete(`/api/properties/deleteHouse/${propertyId}`)
       .catch((error) => console.error(error))
-  } */
+  }
 
   return (
     <div className="container-house">
@@ -58,22 +51,25 @@ function HomePage() {
               to={`/properties/${property.id}`}
               type="button"
               class="btn btn-primary"
-              /* onClick={() => handleView(property.id)} */
             >
               See more
             </Link>
-            {user.admin ? (
+            {user.admin && (
               <div>
                 <Link to={`/properties/change/${property.id}`}>
                   <button type="button" class="btn btn-primary button-margin ">
                     Edit property
                   </button>
                 </Link>
-                <button type="button" class="btn btn-primary">
+                <button
+                  onClick={() => handleDelete(property.id)}
+                  type="button"
+                  class="btn btn-primary"
+                >
                   Delete property
                 </button>
               </div>
-            ) : undefined}
+            )}
           </div>
         </div>
       ))}
