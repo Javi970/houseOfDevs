@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import axios from 'axios'
-import { useNavigate, useParams } from 'react-router'
+import React from 'react'
+
 import { useSelector } from 'react-redux'
 import '../assets/styles/components/User.css'
 
@@ -10,12 +8,12 @@ function User() {
 
   return (
     <div className="container">
-      <div >
-        <div >
-          <h5 >
+      <div>
+        <div className="card">
+          <h5>
             <strong>My profile</strong>
           </h5>
-          <h6 >
+          <h6>
             <strong>Name</strong>: {user?.name}
           </h6>
           <h6>

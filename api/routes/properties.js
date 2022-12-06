@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const Properties = require('../models/Properties');
 const { validateAdmin } = require('../middlewares/auth');
+const { Sequelize } = require('sequelize');
+const Op = Sequelize.Op
 
 router.get("/:id" ,(req,res)=>{
   const id = req.params.id
@@ -38,6 +40,18 @@ router.delete('/deleteHouse/:id', validateAdmin, (req, res) => {
 router.get('/', (req, res) => {
   Properties.findAll().then((property) => {
     res.status(200).send(property);
+  });
+});
+router.get("/search/:title", (req, res) => {
+  const { title } = req.params;
+  const lower = title.toLowerCase();
+  console.log(title);
+  Properties.findAll({
+    where: {
+      title: { [Op.iLike]: `%${lower}% `},
+    },
+  }).then((search) => {
+    res.send(search);
   });
 });
 

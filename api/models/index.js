@@ -4,6 +4,9 @@ const Review = require("./Review")
 const Appointment =require("./Appointment")
 const Favorites = require("./Favorites")
 
-//aca irian las relaciones
+
+Favorites.belongsTo(Users);
+Users.hasMany(Favorites);
+
 
 module.exports = { Users,Properties,Review,Appointment,Favorites };

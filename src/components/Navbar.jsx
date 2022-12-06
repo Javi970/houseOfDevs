@@ -9,6 +9,7 @@ import { userLogOut } from '../state/user'
 const NavBar = () => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
+  
 
   const handlerLogOut = () => {
     axios
@@ -17,7 +18,7 @@ const NavBar = () => {
       .then(() => dispatch(userLogOut()))
       .catch(() => alert('No se pudo cerrar sesion.'))
   }
- 
+
   return (
     <nav className=" navbarr">
       <div className="container">
@@ -41,9 +42,7 @@ const NavBar = () => {
           <li className="nav-item">
             <a className="nav-link buttons">About us</a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link buttons">Contact</a>
-          </li>
+
           {user.admin ? (
             <>
               <p>{user.name} Admin</p>
@@ -51,6 +50,11 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link className="nav-link buttons" to="/user">
                   My profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link buttons" to="/favorites">
+                  My Favorites
                 </Link>
               </li>
               <li className="nav-item">
@@ -74,6 +78,11 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link className="nav-link buttons" to="/user">
                   My profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link buttons" to="/favorites">
+                  My Favorites
                 </Link>
               </li>
               <li className="nav-item">

@@ -15,6 +15,7 @@ function ViewAdminUsers() {
   const handleDelete = (userId) => {
     axios
       .delete(`/api/users/deleteUser/${userId}`)
+      .then(() => window.location.reload(false))
       .catch((error) => console.error(error))
   }
 
