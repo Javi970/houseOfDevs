@@ -39,7 +39,7 @@ function Favorite() {
               See more
             </Link>
             <Link
-              to={`/properties/${fav.id}`}
+              /* to={`/properties/${fav.id}`} */
               type="button"
               className="btn btn-primary"
             >

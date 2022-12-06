@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Users = require('../models/Users');
-const { generateToken, validateToken } = require('../config/token');
+const { generateToken } = require('../config/token');
 const { validateAuth } = require('../middlewares/auth');
 const { validateAdmin } = require('../middlewares/auth');
 
