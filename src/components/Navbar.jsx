@@ -28,19 +28,19 @@ const NavBar = () => {
         <ul className="nav justify-content-end">
           <li className="nav-item "></li>
           <li className="nav-item">
-            <a className="nav-link buttons">On sale</a>
+            <a className="nav-link buttons" href='www'>On sale</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons">Rental</a>
+            <a className="nav-link buttons" href='www'>Rental</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons">Schedule your visit</a>
+            <a className="nav-link buttons" href='www'>Schedule your visit</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons">Our service</a>
+            <a className="nav-link buttons" href='www'>Our service</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons">About us</a>
+            <a className="nav-link buttons" href='www'>About us</a>
           </li>
 
           {user.admin ? (
@@ -50,11 +50,6 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link className="nav-link buttons" to="/user">
                   My profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link buttons" to="/favorites">
-                  My Favorites
                 </Link>
               </li>
               <li className="nav-item">
@@ -81,11 +76,6 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link buttons" to="/favorites">
-                  My Favorites
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link
                   className="nav-link buttons"
                   onClick={handlerLogOut}
@@ -98,14 +88,14 @@ const NavBar = () => {
           ) : (
             <>
               <li className="nav-item">
-                <a className="nav-link buttons">
+                <a className="nav-link buttons" href='www'>
                   <Link to="login" className="buttons">
                     Login
                   </Link>
                 </a>
               </li>
               <li>
-                <a className="nav-link active buttons" aria-current="page">
+                <a className="nav-link active buttons" aria-current="page" href='www'>
                   <Link to="register" className="buttons">
                     Register
                   </Link>

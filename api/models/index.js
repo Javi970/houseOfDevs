@@ -2,11 +2,12 @@ const Users = require('./Users');
 const Properties = require('./Properties');
 const Review = require("./Review")
 const Appointment =require("./Appointment")
-const Favorites = require("./Favorites")
 
 
-Favorites.belongsTo(Users);
-Users.hasMany(Favorites);
+//Las propiedades pueden estar en los favoritos de muchos usuarios
+Properties.belongsToMany(Users, { through: "favorites" });
+//Los Usuarios pueden tener muchas propiedades en sus favoritos
+Users.belongsToMany(Properties, { through: "favorites" });
 
 
-module.exports = { Users,Properties,Review,Appointment,Favorites };
+module.exports = { Users,Properties,Review,Appointment };

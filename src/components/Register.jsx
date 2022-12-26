@@ -49,7 +49,7 @@ function Register() {
     <form className="form" onSubmit={handleRegister} autoComplete="off">
       <h2 className="form__title">Create your acount!</h2>
       <p className="form__paragraph">
-        You have an account? <a class="form__link"><Link to="/login" >
+        You have an account? <a class="form__link" href='www'><Link to="/login" >
                 Enter here
               </Link></a>
       </p>

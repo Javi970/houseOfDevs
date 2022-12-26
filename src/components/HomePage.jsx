@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import '../assets/styles/components/HomePage.css'
 import { Form, Row } from 'react-bootstrap'
-import {addToFavorites} from "../state/user"
+import { addToFavorites } from '../state/user'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function HomePage() {
   const user = useSelector((state) => state.user)
@@ -29,7 +30,6 @@ function HomePage() {
         .catch((error) => console.error(error))
     }
   }, [search])
-  
 
   const handleDelete = (propertyId) => {
     axios
@@ -37,12 +37,32 @@ function HomePage() {
       .then(() => window.location.reload(false))
       .catch((error) => console.error(error))
   }
-   const handleFav = (property) => {
-    dispatch(addToFavorites(property))
-  }
- 
+  const AddFav = (id) => {
+    axios
+      .post(
+        "http://localhost:3001/api/properties/addFavorites",
+        {
+          id: id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(addToFavorites(res.data)))
+      .catch((error) => console.log(error));
+  };
+  
+
   return (
     <>
+      <Dropdown className="container">
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Filter by price
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item >Highest to lowest</Dropdown.Item>
+          <Dropdown.Item >Lowest to highest</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <Form className="centrado">
         <Form.Group className="mb-3">
           <Form.Label></Form.Label>
@@ -50,7 +70,16 @@ function HomePage() {
             value={search}
             onChange={searcher}
             type="text"
-            placeholder="Search"
+            placeholder="Search by title"
+          />
+        </Form.Group>
+      </Form>
+      <Form className="centrado">
+        <Form.Group className="mb-3">
+          <Form.Label></Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Search by rooms"
           />
         </Form.Group>
       </Form>
@@ -104,7 +133,7 @@ function HomePage() {
                     Delete property
                   </button>
                   <button
-                    onClick={() => handleFav(property)}
+                    onClick={() => AddFav(property.id)}
                     type="button"
                     className="btn btn-primary"
                   >
@@ -113,7 +142,7 @@ function HomePage() {
                 </div>
               ) : user.id ? (
                 <button
-                  onClick={() => handleFav(property)}
+                  onClick={() => AddFav(property.id)}
                   type="button"
                   className="btn btn-primary"
                 >

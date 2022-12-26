@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 const bcrypt = require('bcrypt');
 
+//metodo de clases
 class Users extends Sequelize.Model {
   hash(password, salt) {
     return bcrypt.hash(password, salt);
@@ -48,7 +49,7 @@ Users.init(
   },
   { sequelize: db, modelName: 'users' },
 );
-
+//metodo de instancia
 Users.beforeCreate((user) => {
   const salt = bcrypt.genSaltSync();
   user.salt = salt;

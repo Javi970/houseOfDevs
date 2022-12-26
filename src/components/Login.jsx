@@ -40,7 +40,7 @@ function Login() {
     <form className="form" onSubmit={handleLogin} autoComplete="off">
       <h2 className="form__title">Log In</h2>
       <p className="form__paragraph">
-        Do not you have an account yet? <a class="form__link"><Link to="/register" >
+        Do not you have an account yet? <a class="form__link" href='www'><Link to="/register" >
                 Enter here
               </Link></a>
       </p>

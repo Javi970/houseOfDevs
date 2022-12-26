@@ -12,7 +12,7 @@ import EditProperty from './components/EditProperty'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { userLogin } from './state/user'
-import Favorite from './components/Favorite'
+
 
 const App = () => {
   const dispatch = useDispatch()
@@ -36,7 +36,6 @@ const App = () => {
         <Route path="/properties/:id" element={<Card />} />
         <Route path="/allUsers" element={<ViewAdminUsers />} />
         <Route path="/properties/change/:id" element={<EditProperty />} />
-        <Route path="/favorites" element={<Favorite />} />
       </Routes>
     </>
   )

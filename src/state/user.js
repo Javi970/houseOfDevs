@@ -1,4 +1,11 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
+import { message } from 'antd'
+
+
+export const userLogin = createAction('USER_LOGIN')
+export const userLogOut = createAction('USER_LOGOUT')
+export const addToFavorites = createAction('ADD_TO_FAVORITES')
+export const removeFromFavorites = createAction('REMOVE_FROM_FAVORITES')
 
 
 const initialState = {
@@ -6,26 +13,29 @@ const initialState = {
   email: null,
   admin: null,
   name: null,
-  favorites: [],
+  properties: [],
 }
 
-export const userLogin = createAction('USER_LOGIN')
-export const userLogOut = createAction('USER_LOGOUT')
-export const addToFavorites = createAction('ADD_TO_FAVORITES')
-export const removeFromFavorites = createAction('REMOVE_FROM_FAVORITES')
-
 const userReducer = createReducer(initialState, {
-  [userLogin]: (state, action) => ({...action.payload,favorites:[]}),
+  [userLogin]: (state, action) => action.payload,
   [userLogOut]: (state, action) => (state = {}),
   [addToFavorites]: (state, action) => {
-   
-    /* if (!state.favorites.find((fav) => fav.id === action.payload.id)) {
-       message.error('Property already in favorites')
-       return state
-    } */
-    /* message.succes("Property added to favorites") */
-    
-    state.favorites.push(action.payload)
+    if (state.properties.find((fav) => fav.id === action.payload.id)) {
+      message.error('error:this property was already added to favorites')
+      return state
+    }
+
+    message.success('Property added to favorites')
+    return state.properties.push(action.payload)
+  },
+  [removeFromFavorites]: (state, action) => {
+    message.success(`Property removed from favorites`)
+    return {
+      ...state,
+      properties: state.properties.filter(
+        (fav) => fav.id !== action.payload.id,
+      ),
+    }
   },
 })
 

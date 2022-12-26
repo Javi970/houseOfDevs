@@ -13,14 +13,14 @@ function Card() {
       .then((res) => res.data)
       .then((property) => setProperty(property))
       .catch((error) => console.error(error))
-  }, [])
+  }, [id])
 
   return (
     <div className="container-house">
       <div className="card locura">
         <h1 className="card-title">{property.title} </h1>
         <div className="card-body">
-          <img className="card-img-top" src={property.image} />
+          <img className="card-img-top" src={property.image} alt="img"/>
         </div>
         <p className="card-text">
           {property.description}
