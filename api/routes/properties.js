@@ -64,40 +64,6 @@ router.get("/search/:search", (req, res) => {
     .catch((error) => console.log(error));
 });
 
-//ruta para filtrar por ambientes
-router.get("/filter/rooms", (req, res) => {
-  const { rooms } = req.body;
-  Properties.findAll({ where: { rooms: rooms } })
-    .then((filter) => {
-      res.send(filter);
-    })
-    .catch((error) => console.log(error));
-});
-
-//ruta para ordenar por mayor precio
-router.post("/moreValue", (req, res) => {
-  Properties.findAll()
-    .then((propertys) => {
-      propertys.sort((a,b)=>{
-        return b.price - a.price
-      })
-      res.send(propertys)
-    })
-    .catch((error) => console.log(error));
-});
-
-//ruta para ordenar por menor precio
-router.post("/lessValue", (req, res) => {
-  Properties.findAll()
-    .then((propertys) => {
-      propertys.sort((a,b)=>{
-        return a.price - b.price
-      })
-      res.send(propertys)
-    })
-    .catch((error) => console.log(error));
-});
-
 //Ruta filtrar por cantida de ambiente
 router.get("/rooms/:roomNumber",(req,res)=>{
   const roomNumber = req.params.roomNumber
