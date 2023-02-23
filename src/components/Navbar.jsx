@@ -1,46 +1,54 @@
-import React from 'react'
-import '../assets/styles/components/Navbar.css'
-import logo from '../assets/image/logo.png'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
-import { userLogOut } from '../state/user'
+import React from "react";
+import "../assets/styles/components/Navbar.css";
+import logo from "../assets/image/logo.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogOut } from "../state/user";
 
 const NavBar = () => {
-  const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
-  
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   const handlerLogOut = () => {
     axios
-      .post('/api/users/logout')
+      .post("/api/users/logout")
       .then((res) => res.data)
       .then(() => dispatch(userLogOut()))
-      .catch(() => alert('No se pudo cerrar sesion.'))
-  }
+      .catch(() => alert("No se pudo cerrar sesion."));
+  };
 
   return (
     <nav className=" navbarr">
       <div className="container">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img src={logo} alt="HouseOfDev" />
-        </a>
+        </Link>
         <ul className="nav justify-content-end">
-          <li className="nav-item "></li>
           <li className="nav-item">
-            <a className="nav-link buttons" href='www'>On sale</a>
+            <a className="nav-link buttons" href="www">
+              On sale
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons" href='www'>Rental</a>
+            <a className="nav-link buttons" href="www">
+              Rental
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons" href='www'>Schedule your visit</a>
+            <a className="nav-link buttons" href="www">
+              Schedule your visit
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons" href='www'>Our service</a>
+            <a className="nav-link buttons" href="www">
+              Our service
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link buttons" href='www'>About us</a>
+            <a className="nav-link buttons" href="www">
+              About us
+            </a>
           </li>
 
           {user.admin ? (
@@ -88,25 +96,21 @@ const NavBar = () => {
           ) : (
             <>
               <li className="nav-item">
-                <a className="nav-link buttons" href='www'>
-                  <Link to="login" className="buttons">
-                    Login
-                  </Link>
-                </a>
+                <Link to="/login" className="buttons nav-link">
+                  Login
+                </Link>
               </li>
               <li>
-                <a className="nav-link active buttons" aria-current="page" href='www'>
-                  <Link to="register" className="buttons">
-                    Register
-                  </Link>
-                </a>
+                <Link to="/register" className="buttons nav-link">
+                  Register
+                </Link>
               </li>
             </>
           )}
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

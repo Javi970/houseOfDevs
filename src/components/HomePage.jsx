@@ -1,89 +1,93 @@
-import axios from 'axios'
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import '../assets/styles/components/HomePage.css'
-import { Form, Row } from 'react-bootstrap'
-import { addToFavorites } from '../state/user'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Button from 'react-bootstrap/Button'
+import axios from "axios";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import "../assets/styles/components/HomePage.css";
+import { Form, Row } from "react-bootstrap";
+import { addToFavorites } from "../state/user";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
 
 function HomePage() {
-  const user = useSelector((state) => state.user)
-  const [properties, setProperties] = useState([])
-  const [search, setSearch] = useState('')
-  const [input, setInput] = useState('')
-  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user);
+  const [properties, setProperties] = useState([]);
+  const [search, setSearch] = useState("");
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
   const searcher = (e) => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
   const handleInput = (e) => {
-    setInput(e.target.value)
-  }
+    setInput(e.target.value);
+  };
   useEffect(() => {
-    if (search === '') {
+    if (search === "") {
       axios
-        .get('http://localhost:3001/api/properties/')
+        .get("http://localhost:3001/api/properties/")
         .then((res) => setProperties(res.data))
-        .catch((error) => console.error(error))
+        .catch((error) => console.error(error));
     } else {
       axios
         .get(`http://localhost:3001/api/properties/search/${search}`)
         .then((res) => setProperties(res.data))
-        .catch((error) => console.error(error))
+        .catch((error) => console.error(error));
     }
-  }, [search])
+  }, [search]);
 
   const handleDelete = (propertyId) => {
     axios
       .delete(`/api/properties/deleteHouse/${propertyId}`)
       .then(() => window.location.reload(false))
-      .catch((error) => console.error(error))
-  }
+      .catch((error) => console.error(error));
+  };
 
   const handleSubmitMorePrice = () => {
     const ordenado = properties.slice().sort(function (a, b) {
-      return b.price - a.price
-    })
+      return b.price - a.price;
+    });
 
-    setProperties(ordenado)
-  }
+    setProperties(ordenado);
+  };
 
   const handleSubmitLessPrice = () => {
     const ordenadoMenor = properties.slice().sort(function (a, b) {
-      return a.price - b.price
-    })
+      return a.price - b.price;
+    });
 
-    setProperties(ordenadoMenor)
-  }
+    setProperties(ordenadoMenor);
+  };
 
   const AddFav = (id) => {
     axios
       .post(
-        'http://localhost:3001/api/properties/addFavorites',
+        "http://localhost:3001/api/properties/addFavorites",
         {
           id: id,
         },
-        { withCredentials: true },
+        { withCredentials: true }
       )
       .then((res) => dispatch(addToFavorites(res.data)))
-      .catch((error) => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
 
   const handleSubmitRoom = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     axios
       .get(`http://localhost:3001/api/properties/rooms/${input}`, {
         withCredentials: true,
       })
       .then((res) => setProperties(res.data))
-      .catch((error) => console.log('Fallo', error))
-  }
+      .catch((error) => console.log("Fallo", error));
+  };
   return (
     <>
       <Dropdown className="container">
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+        <Dropdown.Toggle
+          variant="primary"
+          id="dropdown-basic"
+          className="m-btn-filterprice"
+        >
           Filter by price
         </Dropdown.Toggle>
 
@@ -103,7 +107,7 @@ function HomePage() {
             value={search}
             onChange={searcher}
             type="text"
-            placeholder="Search location or features"
+            placeholder="Search by addres"
           />
         </Form.Group>
       </Form>
@@ -116,7 +120,11 @@ function HomePage() {
             placeholder="Search by rooms"
           />
         </Form.Group>
-        <Button variant="primary" onClick={handleSubmitRoom}>
+        <Button
+          variant="primary"
+          className="m-btn-filter"
+          onClick={handleSubmitRoom}
+        >
           Filter
         </Button>
       </Form>
@@ -148,16 +156,16 @@ function HomePage() {
               <Link
                 to={`/properties/${property.id}`}
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-primary "
               >
                 See more
               </Link>
               {user.admin ? (
-                <div>
+                <div className="d-flex flex-column justify-content-end align-items-center">
                   <Link to={`/properties/change/${property.id}`}>
                     <button
                       type="button"
-                      className="btn btn-primary button-margin "
+                      className="btn btn-primary m-btn-homepage-admin"
                     >
                       Edit property
                     </button>
@@ -165,14 +173,14 @@ function HomePage() {
                   <button
                     onClick={() => handleDelete(property.id)}
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary m-btn-homepage-admin"
                   >
                     Delete property
                   </button>
                   <button
                     onClick={() => AddFav(property.id)}
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary m-btn-homepage-admin"
                   >
                     Add to favorite
                   </button>
@@ -191,7 +199,7 @@ function HomePage() {
         ))}
       </div>
     </>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

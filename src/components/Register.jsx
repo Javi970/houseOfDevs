@@ -1,17 +1,17 @@
-import axios from 'axios';
-import React from 'react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../assets/styles/components/Register.css';
-import {Link} from "react-router-dom"
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../assets/styles/components/Register.css";
+import { Link } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   function changeEmail(e) {
     setEmail(e.target.value);
   }
@@ -30,7 +30,7 @@ function Register() {
   function handleRegister(e) {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/api/users/register', {
+      .post("http://localhost:3001/api/users/register", {
         name: name,
         lastname: lastname,
         email: email,
@@ -39,19 +39,20 @@ function Register() {
       })
       .then((res) => res.data)
       .then(() => {
-        navigate('/login');
-        alert('Congratulations successful registration!');
+        navigate("/login");
+        alert("Congratulations successful registration!");
       })
-      .catch(() => alert('Wrong registration, please try again'));
+      .catch(() => alert("Wrong registration, please try again"));
   }
 
   return (
     <form className="form" onSubmit={handleRegister} autoComplete="off">
       <h2 className="form__title">Create your acount!</h2>
       <p className="form__paragraph">
-        You have an account? <a class="form__link" href='www'><Link to="/login" >
-                Enter here
-              </Link></a>
+        You have an account?{" "}
+        <Link className="form__link" to="/login">
+          Enter here
+        </Link>
       </p>
 
       <div className="form__container">
@@ -60,7 +61,7 @@ function Register() {
         </div>
         <div class="form__group">
           <input
-          required
+            required
             name={name}
             onChange={changeName}
             type="text"
@@ -73,7 +74,7 @@ function Register() {
         </div>
         <div class="form__group">
           <input
-          required
+            required
             lastname={lastname}
             onChange={changeLastname}
             type="text"
@@ -86,7 +87,7 @@ function Register() {
         </div>
         <div class="form__group">
           <input
-          required
+            required
             email={email}
             onChange={changeEmail}
             type="email"
@@ -99,7 +100,7 @@ function Register() {
         </div>
         <div class="form__group">
           <input
-          required
+            required
             password={password}
             onChange={changePassword}
             type="password"
@@ -112,7 +113,7 @@ function Register() {
         </div>
         <div class="form__group">
           <input
-          required
+            required
             phone={phone}
             onChange={changePhone}
             type="tel"

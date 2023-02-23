@@ -27,10 +27,11 @@
     "sequelize": "^6.25.3"
   },
   "scripts": {
-    "start": "concurrently 'npm run server' 'npm run client'",
+    "start": "react-scripts start",
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "seed": "node ./api/utils/index.js"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {

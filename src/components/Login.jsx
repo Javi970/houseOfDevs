@@ -1,34 +1,33 @@
-import axios from 'axios';
-import React from 'react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import '../assets/styles/components/Login.css';
-import {Link} from "react-router-dom"
-import { useDispatch } from 'react-redux';
-import { userLogin } from '../state/user';
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import "../assets/styles/components/Login.css";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../state/user";
 
 function Login() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   function handleLogin(e) {
     e.preventDefault();
     axios
       .post(
-        'http://localhost:3001/api/users/login',
+        "http://localhost:3001/api/users/login",
         { email: email, password: password },
-        { withCredentials: true },
+        { withCredentials: true }
       )
       .then((res) => dispatch(userLogin(res.data)))
       .then(() => {
-        navigate('/');
-        alert('Congratulations successful Log in!');
+        navigate("/");
+        alert("Congratulations successful Log in!");
       })
-      .catch(() => alert('Wrong Log in, please try again'));
-     
+      .catch(() => alert("Wrong Log in, please try again"));
   }
-  
+
   function changeEmail(e) {
     setEmail(e.target.value);
   }
@@ -40,9 +39,10 @@ function Login() {
     <form className="form" onSubmit={handleLogin} autoComplete="off">
       <h2 className="form__title">Log In</h2>
       <p className="form__paragraph">
-        Do not you have an account yet? <a class="form__link" href='www'><Link to="/register" >
-                Enter here
-              </Link></a>
+        Do not you have an account yet?
+        <Link className="form__link" to="/register">
+          Enter here
+        </Link>
       </p>
 
       <div className="form__container">
@@ -79,7 +79,6 @@ function Login() {
         <input type="submit" className="form__submit" value="Log in" />
       </div>
     </form>
-    
   );
 }
 
