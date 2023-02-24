@@ -1,7 +1,7 @@
 # HouseOfDev
+
                HOUSE OF DEV
                          proyecto de plataforma5
-
 
 Descripcion el proyecto:
 Crear una aplicación web, para una inmobiliaria, que tiene como objetivo el de poder agendar
@@ -13,10 +13,8 @@ INICIO
 -npm i
 -npm run server(back)
 -npm run client(front)
--createdb "houseOfDev"
+-createdb "house_of_dev"
 -conectar base de datos
-
-
 
 Stack de tecnologías involucradas(back):
 -NodeJS
@@ -33,6 +31,7 @@ Stack de tecnologías involucradas(back):
 -Pg
 
 Stack de tecnologías involucradas(front):
--bootstrap
--axios
+-Bootstrap
+-Axios
 -React
+-Redux
