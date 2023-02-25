@@ -55,7 +55,7 @@ const getUser = (req, res) => {
     .catch((err) => res.status(400).send(err));
 };
 
-//persistencia
+//persistencias
 const me = (req, res) => {
   Users.findByPk(req.user.id, { include: Properties })
     .then((user) => {
