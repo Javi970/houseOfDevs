@@ -64,6 +64,7 @@ const me = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+//listar usuarios
 const allUsers = (req, res) => {
   Users.findAll()
     .then((users) => {
@@ -73,6 +74,7 @@ const allUsers = (req, res) => {
     .catch((err) => res.status(400).send(err));
 };
 
+//eliminar usuario
 const deleteUser = (req, res) => {
   const id = req.params.id;
   Users.destroy({ where: { id } })
