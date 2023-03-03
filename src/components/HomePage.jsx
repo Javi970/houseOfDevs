@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../assets/styles/components/HomePage.css";
-import { Form, Row } from "react-bootstrap";
+/* import { Form, Row } from "react-bootstrap"; */
 import { addToFavorites } from "../state/user";
-import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
+/* import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button"; */
 
 function HomePage() {
   const user = useSelector((state) => state.user);
@@ -82,16 +82,16 @@ function HomePage() {
   };
   return (
     <>
-      <Dropdown className="container">
+      {/*  <Dropdown className="container">
         <Dropdown.Toggle
           variant="primary"
           id="dropdown-basic"
           className="m-btn-filterprice"
         >
           Filter by price
-        </Dropdown.Toggle>
+        </Dropdown.Toggle> */}
 
-        <Dropdown.Menu>
+      {/* <Dropdown.Menu>
           <Dropdown.Item onClick={handleSubmitMorePrice}>
             Highest to lowest
           </Dropdown.Item>
@@ -197,7 +197,7 @@ function HomePage() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
