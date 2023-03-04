@@ -3,13 +3,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import "../assets/styles/components/HomePage.css";
-/* import { Form, Row } from "react-bootstrap"; */
 import { addToFavorites } from "../state/user";
+import Carrousel from "../utils/Carrousel";
+import Card from "../utils/Card";
+import BottomBar from "../utils/BottomBar";
 /* import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button"; */
 
-function HomePage() {
+/* function HomePage() {
   const user = useSelector((state) => state.user);
   const [properties, setProperties] = useState([]);
   const [search, setSearch] = useState("");
@@ -82,16 +83,16 @@ function HomePage() {
   };
   return (
     <>
-      {/*  <Dropdown className="container">
+       <Dropdown className="container">
         <Dropdown.Toggle
           variant="primary"
           id="dropdown-basic"
           className="m-btn-filterprice"
         >
           Filter by price
-        </Dropdown.Toggle> */}
+        </Dropdown.Toggle>
 
-      {/* <Dropdown.Menu>
+      <Dropdown.Menu>
           <Dropdown.Item onClick={handleSubmitMorePrice}>
             Highest to lowest
           </Dropdown.Item>
@@ -197,9 +198,101 @@ function HomePage() {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </>
   );
 }
+
+
+export default HomePage;
+ */
+
+const HomePage = () => {
+  const user = useSelector((state) => state.user);
+  const [properties, setProperties] = useState([]);
+  const [search, setSearch] = useState("");
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+  const searcher = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+  useEffect(() => {
+    if (search === "") {
+      axios
+        .get("http://localhost:3001/api/properties/")
+        .then((res) => setProperties(res.data))
+        .catch((error) => console.error(error));
+    } else {
+      axios
+        .get(`http://localhost:3001/api/properties/search/${search}`)
+        .then((res) => setProperties(res.data))
+        .catch((error) => console.error(error));
+    }
+  }, [search]);
+
+  const handleDelete = (propertyId) => {
+    axios
+      .delete(`/api/properties/deleteHouse/${propertyId}`)
+      .then(() => window.location.reload(false))
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmitMorePrice = () => {
+    const ordenado = properties.slice().sort(function (a, b) {
+      return b.price - a.price;
+    });
+
+    setProperties(ordenado);
+  };
+
+  const handleSubmitLessPrice = () => {
+    const ordenadoMenor = properties.slice().sort(function (a, b) {
+      return a.price - b.price;
+    });
+
+    setProperties(ordenadoMenor);
+  };
+
+  const AddFav = (id) => {
+    axios
+      .post(
+        "http://localhost:3001/api/properties/addFavorites",
+        {
+          id: id,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(addToFavorites(res.data)))
+      .catch((error) => console.log(error));
+  };
+
+  const handleSubmitRoom = (e) => {
+    e.preventDefault();
+    axios
+      .get(`http://localhost:3001/api/properties/rooms/${input}`, {
+        withCredentials: true,
+      })
+      .then((res) => setProperties(res.data))
+      .catch((error) => console.log("Fallo", error));
+  };
+
+  return (
+    <section className="mt-20 mx-2">
+      <div>
+        <Carrousel />
+      </div>
+      <div>
+        <Card />
+      </div>
+      <div>
+        {/* esto solo cuando uno esta logueado */}
+        <BottomBar />
+      </div>
+    </section>
+  );
+};
 
 export default HomePage;
