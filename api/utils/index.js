@@ -1,7 +1,6 @@
 const Properties = require("../models/Properties");
 const db = require("../db");
 
-
 const fakeData = [
   {
     title: "Departamento 2 ambientes",
@@ -9,7 +8,7 @@ const fakeData = [
     country: "argentina",
     district: "buenos aires",
     description:
-      "La inmobiliaria 101 pisos presenta en exclusiva este maravilloso piso de diseño en frente de la estación de fcc con parada vullpelleres listo para entrar a vivir.",
+      "La inmobiliaria  presenta en exclusiva este maravilloso piso de diseño en frente de la estación de fcc con parada vullpelleres listo para entrar a vivir.",
     availability: true,
     rooms: 2,
     category: "departamento",
@@ -18,7 +17,7 @@ const fakeData = [
       "https://static.inmofactory.com/images/inmofactory/documents/1/128286/32684598/535284921.jpg?rule=web_948x542",
   },
   {
-    title: "Casa 4 ambientes",
+    title: "Duplex 4 ambientes",
     addres: "calle 12",
     country: "argentina",
     district: "Capital Federal",
@@ -26,7 +25,7 @@ const fakeData = [
       "ESPECTACULAR ÁTICO DÚPLEX ÚNICO EN LA ZONA. REFORMA INTEGRAL CON MATERIALES DE MÁXIMA CALIDAD.",
     availability: true,
     rooms: 4,
-    category: "casa",
+    category: "duplex",
     price: "250000",
     image:
       "https://static.inmofactory.com/images/inmofactory/documents/1/99202/32080851/530881831.jpg?rule=web_948x542",
@@ -36,8 +35,7 @@ const fakeData = [
     addres: "calle 40",
     country: "argentina",
     district: "buenos aires",
-    description:
-      "IMAGINA TU NUEVA VIDA!!!VIVIENDAS EXCLUSIVAS EN MURCIA NORTE.!",
+    description: "departamento lujoso ya amueblado, con vistas a la playa!",
     availability: true,
     rooms: 3,
     category: "departamento",
@@ -50,15 +48,15 @@ const fakeData = [
     addres: "calle 22",
     country: "argentina",
     district: "buenos aires",
-    description: "linda casa",
+    description: "Lindo Ph listo para estrenar ",
     availability: true,
     rooms: 2,
     category: "ph",
     price: "2509",
     image:
-      "https://www.mapropiedades.com.ar/resources/original/propiedades/7899449/countrygolf-205_small.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/132104/30465436/544779235.jpg?rule=web_948x542",
   },
-  
+
   {
     title: "Departamento 3 ambientes",
     addres: "calle 90",
@@ -70,7 +68,7 @@ const fakeData = [
     category: "departamento",
     price: "12009",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/102760/32451262/528102800.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -83,7 +81,7 @@ const fakeData = [
     category: "departamento",
     price: "1209",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/133246/31439298/498900441.jpg?rule=web_948x542",
   },
   {
     title: "Casa 3 ambientes",
@@ -96,7 +94,7 @@ const fakeData = [
     category: "departamento",
     price: "12007",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/88332/14243320/170525813.jpg?rule=web_948x542",
   },
   {
     title: "Estancia 3 ambientes",
@@ -109,7 +107,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://app.programainmobiliario.com/files/property/961292/557012341.jpg",
   },
   {
     title: "Duplex 3 ambientes",
@@ -122,7 +120,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://app.programainmobiliario.com/files/property/961292/557012341.jpg",
   },
   {
     title: "Departamento 3 ambientes",
@@ -135,7 +133,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/133618/31935324/520787965.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -148,7 +146,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/87286/29228135/433943410.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -161,7 +159,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.fotocasa.es/images/anuncio/2021/07/13/160691746/1549924370.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -174,7 +172,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/101719/30725170/479164682.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -187,7 +185,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/105281/31665519/504857412.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -200,7 +198,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/128207/32253790/521518684.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -213,7 +211,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/133519/30884173/523332694.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -226,7 +224,7 @@ const fakeData = [
     category: "departamento",
     price: "122342",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/125826/31925742/512821205.jpg?rule=web_948x542",
   },
   {
     title: "Departamento 3 ambientes",
@@ -239,7 +237,7 @@ const fakeData = [
     category: "departamento",
     price: "120000",
     image:
-      "https://ingenieriacivilyarquitectura.com/wp-content/uploads/2022/04/ideas-de-casas-pequenas-pero-bonitas-1.jpg",
+      "https://static.inmofactory.com/images/inmofactory/documents/1/136029/32483472/529186386.jpg?rule=web_948x542",
   },
 ];
 
@@ -254,4 +252,3 @@ db.sync()
   .then(seed)
   .then(() => console.log("Todo salio bien"))
   .catch((error) => console.log("TODO SALIO MAL", error));
-

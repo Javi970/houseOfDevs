@@ -1,10 +1,10 @@
-import axios from 'axios'
+/* import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import '../assets/styles/components/HomePage.css'
-
-function Card() {
+ */
+/* function Card() {
   const [property, setProperty] = useState({})
   const { id } = useParams()
   useEffect(() => {
@@ -45,4 +45,4 @@ function Card() {
   )
 }
 
-export default Card
+export default Card */
