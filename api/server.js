@@ -10,6 +10,7 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
 app.use("/api", routers);
 
 app.use((err, req, res, next) => {

@@ -29,10 +29,7 @@ const Carrousel = () => {
           />
         </div>
         {/* <!-- Item 3 --> */}
-        <div
-          className="hidden ease-linear duration-200 "
-          data-carousel-item="active"
-        >
+        <div className="hidden ease-linear duration-200 " data-carousel-item>
           <img
             src={casasModerna2}
             className="absolute bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"

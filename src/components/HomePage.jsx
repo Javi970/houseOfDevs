@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites } from "../state/user";
 import Carrousel from "../utils/Carrousel";
-import Card from "../utils/Card";
 import BottomBar from "../utils/BottomBar";
+
 /* import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button"; */
 
@@ -219,15 +219,18 @@ const HomePage = () => {
   const handleInput = (e) => {
     setInput(e.target.value);
   };
+
   useEffect(() => {
     if (search === "") {
       axios
-        .get("http://localhost:3001/api/properties/")
+        .get("http://localhost:3001/api/properties/", { withCredentials: true })
         .then((res) => setProperties(res.data))
-        .catch((error) => console.error(error));
+        .catch((error) => console.log("este es el error", error));
     } else {
       axios
-        .get(`http://localhost:3001/api/properties/search/${search}`)
+        .get(`http://localhost:3001/api/properties/search/${search}`, {
+          withCredentials: true,
+        })
         .then((res) => setProperties(res.data))
         .catch((error) => console.error(error));
     }
@@ -284,8 +287,160 @@ const HomePage = () => {
       <div>
         <Carrousel />
       </div>
-      <div>
-        <Card />
+      <div className=" flex mt-2 gap-x-1.5">
+        <form class="flex items-center">
+          <label for="simple-search" className="sr-only">
+            Search
+          </label>
+          <div className="relative w-52">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              type="text"
+              id="simple-search"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+        <form class="flex items-center">
+          <label for="simple-search" className="sr-only">
+            Search
+          </label>
+          <div className="relative w-52">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              type="text"
+              id="simple-search"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search"
+            />
+          </div>
+        </form>
+      </div>
+      <div className="flex mt-7 justify-center">
+        <div className="grid lg:grid-cols-3 gap-1 sm:grid-cols-1 md:grid-cols-2 gap-5 ">
+          {properties.map((property, i) => (
+            <div
+              key={i}
+              className="flex flex-col max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            >
+              <img
+                className=" rounded-t-lg object-fill"
+                src={property.image}
+                alt=""
+              />
+
+              <div className="p-5">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {property.title}
+                </h5>
+
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  {property.description}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Category:{property.category}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Addres:{property.addres}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Price:${property.price}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Country:{property.country}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  District:{property.district}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Availability:{property.availability}
+                </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Rooms:{property.rooms}
+                </p>
+                <Link
+                  to={`/properties/${property.id}`}
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Read more
+                  <svg
+                    aria-hidden="true"
+                    className="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </Link>
+                {user.admin ? (
+                  <div className="flex gap-2 my-2">
+                    <Link
+                      to={`/properties/change/${property.id}`}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Edit property
+                    </Link>
+                    <Link
+                      onClick={() => handleDelete(property.id)}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Delete property
+                    </Link>
+                    <Link
+                      onClick={() => AddFav(property.id)}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Add to favorite
+                    </Link>
+                  </div>
+                ) : user.id ? (
+                  <Link
+                    onClick={() => AddFav(property.id)}
+                    type="button"
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Add to favorite
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div>
         {/* esto solo cuando uno esta logueado */}

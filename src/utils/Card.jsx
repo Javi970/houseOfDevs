@@ -2,27 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
 const Card = () => {
-  const [properties, setProperties] = useState([]);
-  const { id } = useParams();
-  const [search, setSearch] = useState("");
+  const properties = useSelector((state) => state.properties);
 
-  useEffect(() => {
-    if (search === "") {
-      axios
-        .get("http://localhost:3001/api/properties/")
-        .then((res) => setProperties(res.data))
-        .catch((error) => console.error(error));
-    } else {
-      axios
-        .get(`http://localhost:3001/api/properties/search/${search}`)
-        .then((res) => setProperties(res.data))
-        .catch((error) => console.error(error));
-    }
-  }, [search]);
-
-  console.log(properties);
+  console.log(properties.properties);
   return (
     <section className="flex mt-7 justify-center">
       <div className="grid lg:grid-cols-3 gap-1 sm:grid-cols-1 md:grid-cols-2 gap-5 ">
