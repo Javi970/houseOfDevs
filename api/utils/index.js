@@ -91,7 +91,7 @@ const fakeData = [
     description: "epic casa",
     availability: true,
     rooms: 3,
-    category: "departamento",
+    category: "casa",
     price: "12007",
     image:
       "https://static.inmofactory.com/images/inmofactory/documents/1/88332/14243320/170525813.jpg?rule=web_948x542",
@@ -104,7 +104,7 @@ const fakeData = [
     description: "epic casa",
     availability: true,
     rooms: 3,
-    category: "departamento",
+    category: "casa",
     price: "120000",
     image:
       "https://app.programainmobiliario.com/files/property/961292/557012341.jpg",
@@ -117,7 +117,7 @@ const fakeData = [
     description: "epic casa",
     availability: true,
     rooms: 3,
-    category: "departamento",
+    category: "duplex",
     price: "120000",
     image:
       "https://app.programainmobiliario.com/files/property/961292/557012341.jpg",
