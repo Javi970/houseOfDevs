@@ -6,115 +6,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogOut } from "../state/user";
 
-/* const NavBar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-
-  const handlerLogOut = () => {
-    axios
-      .post("/api/users/logout")
-      .then((res) => res.data)
-      .then(() => dispatch(userLogOut()))
-      .catch(() => alert("No se pudo cerrar sesion."));
-  };
-
-  return (
-    <nav className=" navbarr">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="HouseOfDev" />
-        </Link>
-        <ul className="nav justify-content-end">
-          <li className="nav-item">
-            <a className="nav-link buttons" href="www">
-              On sale
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link buttons" href="www">
-              Rental
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link buttons" href="www">
-              Schedule your visit
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link buttons" href="www">
-              Our service
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link buttons" href="www">
-              About us
-            </a>
-          </li>
-
-          {user.admin ? (
-            <>
-              <p>{user.name} Admin</p>
-
-              <li className="nav-item">
-                <Link className="nav-link buttons" to="/user">
-                  My profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link buttons" to="/allUsers">
-                  Users
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link buttons"
-                  onClick={handlerLogOut}
-                  to="/"
-                >
-                  Log Out
-                </Link>
-              </li>
-            </>
-          ) : user.id ? (
-            <>
-              <p>{user.name}</p>
-              <li className="nav-item">
-                <Link className="nav-link buttons" to="/user">
-                  My profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link buttons"
-                  onClick={handlerLogOut}
-                  to="/"
-                >
-                  Log Out
-                </Link>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <Link to="/login" className="buttons nav-link">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link to="/register" className="buttons nav-link">
-                  Register
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </div>
-    </nav>
-  );
-};
-
-export default NavBar; */
-
 const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -149,9 +40,9 @@ const NavBar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -167,7 +58,6 @@ const NavBar = () => {
                 className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 
                 focus:bg-gray-400
                 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                //aria-current="page"
               >
                 About us
               </Link>

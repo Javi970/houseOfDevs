@@ -21,23 +21,23 @@ function ViewAdminUsers() {
 
   return (
     <>
-      <div class="mt-16 relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class=" w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="mt-16 relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className=" w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Id
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Name
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Lastname
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Email
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Phone
               </th>
             </tr>
@@ -80,53 +80,3 @@ function ViewAdminUsers() {
 }
 
 export default ViewAdminUsers;
-
-{
-  /* <div className="container">
-      <div className="row">
-        <div className="col">
-          <table className="table table-striped table-danger table-hover table-bordered table align-middle">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((usuario, i) => {
-                return (
-                  <>
-                    <tr key={i}>
-                      <td>{usuario.id}</td>
-                      <td>{usuario.name}</td>
-                      <td>{usuario.lastname}</td>
-                      <td>{usuario.email}</td>
-                      <td>{usuario.phone}</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          onClick={() => handleDelete(usuario.id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary">
-        <Link to="/propertiesCreated" className="nav-link buttons">
-          Make a property
-        </Link>
-      </button>
-    </div> */
-}

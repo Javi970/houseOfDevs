@@ -114,7 +114,7 @@ const PropertiesCreated = () => {
             required
           />
           <label
-            for="floating_category"
+            htmlFor="floating_category"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Category
@@ -132,7 +132,7 @@ const PropertiesCreated = () => {
             required
           />
           <label
-            for="floating_country"
+            htmlFor="floating_country"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Country
@@ -150,7 +150,7 @@ const PropertiesCreated = () => {
             required
           />
           <label
-            for="floating_district"
+            htmlFor="floating_district"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             District
@@ -169,7 +169,7 @@ const PropertiesCreated = () => {
               required
             />
             <label
-              for="floating_price"
+              htmlFor="floating_price"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Price
@@ -187,7 +187,7 @@ const PropertiesCreated = () => {
               required
             />
             <label
-              for="floating_addres"
+              htmlFor="floating_addres"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Addres
@@ -208,7 +208,7 @@ const PropertiesCreated = () => {
               required
             />
             <label
-              for="floating_description"
+              htmlFor="floating_description"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Description
@@ -226,7 +226,7 @@ const PropertiesCreated = () => {
               required
             />
             <label
-              for="floating_rooms"
+              htmlFor="floating_rooms"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
               Rooms
@@ -234,7 +234,7 @@ const PropertiesCreated = () => {
 
             <label
               className="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              for="user_avatar"
+              htmlFor="user_avatar"
             >
               Upload image
             </label>

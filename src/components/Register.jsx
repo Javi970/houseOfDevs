@@ -79,7 +79,7 @@ const Register = () => {
                   </div>
                   <div>
                     <label
-                      for="last-name"
+                      htmlFor="last-name"
                       className="block text-sm font-medium text-neutral-600"
                     >
                       Last name
@@ -100,7 +100,7 @@ const Register = () => {
 
                   <div>
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="block text-sm font-medium text-neutral-600"
                     >
                       {" "}
@@ -122,7 +122,7 @@ const Register = () => {
 
                   <div className="space-y-1">
                     <label
-                      for="password"
+                      htmlFor="password"
                       className="block text-sm font-medium text-neutral-600"
                     >
                       {" "}
@@ -143,7 +143,7 @@ const Register = () => {
                   </div>
                   <div>
                     <label
-                      for="phone"
+                      htmlFor="phone"
                       className="block text-sm font-medium text-neutral-600"
                     >
                       Phone
@@ -174,7 +174,7 @@ const Register = () => {
                         required=""
                       />
                       <label
-                        for="accept-terms-&-conditions"
+                        htmlFor="accept-terms-&-conditions"
                         className="block ml-2 text-sm text-neutral-600"
                       >
                         Accept terms & conditions

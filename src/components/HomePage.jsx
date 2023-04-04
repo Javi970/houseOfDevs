@@ -135,10 +135,10 @@ const HomePage = () => {
           <button
             id="dropdownDefaultButton"
             data-dropdown-toggle="dropdown"
-            className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 "
+            className="text-white ml-20 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 "
             type="button"
           >
-            Dropdown button{" "}
+            Filter by price
             <svg
               className="w-4 h-4 ml-2"
               aria-hidden="true"
@@ -201,7 +201,7 @@ const HomePage = () => {
               <div className="p-5">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {property.title}
-                  <h4>${property.price}</h4>
+                  <p>${property.price}</p>
                 </h5>
 
                 <p className="h-24 mb-3 font-normal text-gray-700 dark:text-gray-400">
