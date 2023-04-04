@@ -42,7 +42,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -67,7 +67,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -88,7 +88,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -113,7 +113,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -141,7 +141,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -163,7 +163,7 @@ export const BottomBar = () => {
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
-              class="h-8 w-8 text-black"
+              className="h-8 w-8 text-black"
               width="24"
               height="24"
               viewBox="0 0 24 24"

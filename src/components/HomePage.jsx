@@ -94,7 +94,7 @@ const HomePage = () => {
       </div>
       <div className=" flex mt-2 mb-1.5 flex flex-wrap space-y-2 w-full ">
         <form className="flex items-center w-full">
-          <label for="simple-search" className="sr-only">
+          <label htmlFor="simple-search" className="sr-only">
             Search
           </label>
           <div className="relative w-full">
@@ -114,7 +114,7 @@ const HomePage = () => {
       </div>
       <div className="flex w-full">
         <form className="flex items-center " onSubmit={handleSubmitRoom}>
-          <label for="simple-search" className="sr-only">
+          <label htmlFor="simple-search" className="sr-only">
             Search by rooms
           </label>
           <div className="relative w-full">
