@@ -30,9 +30,13 @@ const App = () => {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<User />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/properties/:id" element={<Card />} />
+        {user.id === "true" && (
+          <>
+            <Route path="/user" element={<User />} />
+          </>
+        )}
 
         {user.admin === "true" && (
           <>
