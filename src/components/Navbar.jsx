@@ -17,12 +17,11 @@ const NavBar = () => {
       .catch(() => alert("No se pudo cerrar sesion."));
   };
   return (
-    <nav className="bg-orange-500  px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed  w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <Link to="/" className="flex items-center">
-          <img src={logo} alt="" />
-        </Link>
-
+    <nav className="bg-orange-500  px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed  w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 justify-between flex">
+      <Link to="/" className="flex items-center">
+        <img src={logo} alt="" />
+      </Link>
+      <div className="container flex flex-wrap items-center justify-end mx-auto md:justify-center">
         <div className="flex md:order-2">
           <button
             data-collapse-toggle="navbar-sticky"
@@ -51,7 +50,7 @@ const NavBar = () => {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-200 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-200 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 mr-24">
             <li>
               <Link
                 to="/"
@@ -92,6 +91,7 @@ const NavBar = () => {
                 Contact
               </Link>
             </li>
+
             {user.admin ? (
               <>
                 <li>

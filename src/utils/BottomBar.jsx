@@ -6,7 +6,7 @@ export const BottomBar = () => {
   const user = useSelector((state) => state.user);
 
   return (
-    <div className="flex items-center fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+    <div className="flex items-center fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 lg:hidden">
       {user.admin ? (
         <div className="justify-center grid h-full max-w-lg grid-cols-4 mx-auto">
           <button

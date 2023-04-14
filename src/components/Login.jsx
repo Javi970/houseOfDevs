@@ -36,7 +36,7 @@ const Login = () => {
 
   return (
     <section>
-      <div className="flex min- overflow-hidden">
+      <div className="flex min- overflow-hidden md:justify-center">
         <div className="flex flex-col justify-center mt-7 flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="w-full max-w-xl mx-auto lg:w-96">
             <div>
